@@ -4,8 +4,6 @@
 class fail2ban::install {
   package { 'fail2ban':
     ensure  => $fail2ban::params::ensure_mode,
-    name    => $fail2ban::params::package_name,
-    require => [
-      Exec['repo-update'],],
+    name    => $fail2ban::params::package_name
   }
 }
