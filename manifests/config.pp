@@ -65,4 +65,17 @@ class fail2ban::config {
       File["${fail2ban::params::configuration_dir}/filter.d"]],
     notify  => Class['fail2ban::service'],
   }
+  file {
+  "${fail2ban::params::configuration_dir}/filter.d/apache-overflows.conf":
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0640',
+    source  => 'puppet:///modules/fail2ban/filter.d/apache-overflows.conf',
+    require => [
+      Class['fail2ban::install'],
+      File["${fail2ban::params::configuration_dir}/filter.d"]],
+    notify  => Class['fail2ban::service'],
+  }
+
 }
