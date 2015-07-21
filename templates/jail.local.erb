@@ -131,7 +131,11 @@ logpath  = /var/log/mail.log
 
 enabled  = true
 port	 = smtp,ssmtp,imap2,imap3,imaps,pop3,pop3s
+<% if operatingsystemmajrelease == 8 %>       
+filter   = postfix-sasl
+<% else %>
 filter   = sasl
+<% end %>
 # You might consider monitoring /var/log/warn.log instead
 # if you are running postfix. See http://bugs.debian.org/507990
 logpath  = /var/log/mail.log
