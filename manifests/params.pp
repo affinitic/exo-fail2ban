@@ -10,8 +10,7 @@ class fail2ban::params {
 
   case $::operatingsystem {
     /(Ubuntu|Debian)/ : {
-      $package_name      = [
-        'fail2ban']
+      $package_name      = 'fail2ban'
       $service_name      = 'fail2ban'
       $configuration_dir = '/etc/fail2ban'
     }
